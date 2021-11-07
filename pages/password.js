@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import React, { Component } from "react";
 import { Container, Fade } from "react-bootstrap";
 import { Button, Toaster, Position } from "@blueprintjs/core";
@@ -65,16 +66,18 @@ export default class PasswordGenerator extends Component {
               {/* HEADER */}
               <div className="text-center w-100">
                 <div className="d-flex align-items-center justify-content-center w-100 p-5 pb-3">
-                  <img
+                  <Image
                     src={logo.src}
                     alt="header logo"
-                    style={{ width: "50px" }}
+                    width="50px"
+                    height="50px"
+                    // style={{ width: "50px" }}
                   />
                   <h4 style={{ marginLeft: "5px" }}>
                     <span>Password Generator</span>
                   </h4>
                 </div>
-                <Link href="/">
+                <Link href="/" passHref={true}>
                   <Button icon="home">Home</Button>
                 </Link>
               </div>

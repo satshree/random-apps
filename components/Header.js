@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Image from "next/image";
 
 import logo from "../styles/img/dices.png";
 
@@ -28,13 +29,15 @@ export default class Header extends Component {
         className="text-center w-100 main-header"
       >
         <div className="d-flex align-items-center justify-content-center w-100">
-          <img
-            ref={this.logo}
-            src={logo.src}
-            className="logo-animate"
-            alt="header logo"
-            style={{ width: "50px" }}
-          />
+          <div ref={this.logo} className="logo-animate">
+            <Image
+              src={logo.src}
+              alt="header logo"
+              width="50px"
+              height="50px"
+              // style={{ width: "50px" }}
+            />
+          </div>
           <h4 style={{ marginLeft: "5px" }}>
             <span>Random Apps</span>
           </h4>

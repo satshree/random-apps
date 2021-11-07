@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Fade, Row, Col } from "react-bootstrap";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
@@ -26,13 +27,16 @@ export default function Home() {
               <Row className="text-center w-100">
                 <Col className="col-margin" sm={6} md={4}>
                   <div className="w-100 h-100 app-container">
-                    <Link href="password">
-                      <img
-                        src={passwordLogo.src}
-                        className="app-logo"
-                        alt="password logo"
-                      />
-                    </Link>
+                    <div className="app-logo">
+                      <Link href="password" passHref={true}>
+                        <Image
+                          src={passwordLogo.src}
+                          alt="password logo"
+                          width="100px"
+                          height="100px"
+                        />
+                      </Link>
+                    </div>
                     <br />
                     <span className="app-label">Password Generator</span>
                   </div>
@@ -58,14 +62,10 @@ export default function Home() {
             </React.Fragment>
           </Fade>
           <footer className={styles.footer}>
-            <a href="https://satshree.com.np/#/" target="_blank" rel="noopener">
+            <a href="https://satshree.com.np/#/" target="blank">
               Made by Satshree Shrestha
             </a>
-            <a
-              href="https://satshree.com.np/#/ping"
-              target="_blank"
-              rel="noopener"
-            >
+            <a href="https://satshree.com.np/#/ping" target="blank">
               Suggest me ideas!
             </a>
           </footer>
