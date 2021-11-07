@@ -62,11 +62,26 @@ export default function Home() {
             </React.Fragment>
           </Fade>
           <footer className={styles.footer}>
-            <a href="https://satshree.com.np/#/" target="blank">
+            <a
+              href="https://satshree.com.np/#/"
+              target="blank"
+              rel="noreferrer"
+            >
               Made by Satshree Shrestha
             </a>
-            <a href="https://satshree.com.np/#/ping" target="blank">
+            <a
+              href="https://satshree.com.np/#/ping"
+              target="blank"
+              rel="noreferrer"
+            >
               Suggest me ideas!
+            </a>
+            <a
+              href="https://github.com/satshree/random-apps"
+              target="blank"
+              rel="noreferrer"
+            >
+              GitHub
             </a>
           </footer>
         </Container>
