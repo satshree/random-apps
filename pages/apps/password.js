@@ -93,7 +93,7 @@ export default class PasswordGenerator extends Component {
               <div
                 className="d-flex align-items-center justify-content-center"
                 style={{
-                  minHeight: "500px",
+                  minHeight: "300px",
                 }}
               >
                 {/* EXPANDED HEIGHT AND WEIGHT CONTAINER */}
@@ -103,6 +103,8 @@ export default class PasswordGenerator extends Component {
                     maxWidth: "800px",
                   }}
                 >
+                  <br />
+                  <br />
                   Use randomly generated passwords to keep yourself safe.
                   <br />
                   <br />

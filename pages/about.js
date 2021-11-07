@@ -18,13 +18,22 @@ export default class About extends Component {
             <Container>
               <div className="d-flex align-items-center justify-content-center h-100 w-100">
                 <div className="text-center">
-                  <em>Hello! I am Satshree Shrestha</em>
+                  <h6>
+                    Hello! I am{" "}
+                    <a
+                      href="https://satshree.com.np"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Satshree Shrestha
+                    </a>
+                  </h6>
                   <p style={{ padding: "1rem" }} align="justify">
                     I developed this app. It was some random day when I thought
-                    what if we had this random app which could do something I
+                    what if we had this random app which could do something you
                     really wanted to at the moment! This led me to build this
                     app. I will be adding more apps to Random Apps as time goes.
-                    You know, inspiration can hit at any moment.
+                    <em>You know</em>, inspiration can hit at any moment.
                   </p>
                   <a
                     href="https://satshree.com.np/#/ping"
