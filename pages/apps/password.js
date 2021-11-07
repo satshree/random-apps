@@ -49,18 +49,10 @@ export default class PasswordGenerator extends Component {
             name="description"
             content="Random string generator for passwords"
           />
-          <meta name="author" content="Satshree Shrestha" />
           <meta
             name="keywords"
             content="random, quick, useful, apps, password, string, generator"
           />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
-          />
-          <meta name="theme-color" content="#ffffff" />
-          <link rel="manifest" href="/manifest.json" />
-          <link rel="icon" href="/favicon.ico" />
         </Head>
         <Container className="main-body">
           <Toaster

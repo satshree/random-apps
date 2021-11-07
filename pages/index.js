@@ -1,6 +1,7 @@
 import React from "react";
 import { Fade } from "react-bootstrap";
 import Head from "next/head";
+
 import styles from "../styles/Home.module.css";
 
 import Main from "../Main.js";
@@ -11,15 +12,7 @@ export default function Home() {
       <Head>
         <title>Random Apps</title>
         <meta name="description" content="Quick and random useful apps" />
-        <meta name="author" content="Satshree Shrestha" />
         <meta name="keywords" content="random, quick, useful, apps" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
-        />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Fade appear={true} in={true}>
         <React.Fragment>
