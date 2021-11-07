@@ -28,7 +28,7 @@ export default function Home() {
                 <Col className="col-margin" sm={6} md={4}>
                   <div className="w-100 h-100 app-container">
                     <div className="app-logo">
-                      <Link href="password" passHref={true}>
+                      <Link href="/apps/password" passHref={true}>
                         <Image
                           src={passwordLogo.src}
                           alt="password logo"
@@ -83,6 +83,9 @@ export default function Home() {
             >
               GitHub
             </a>
+            <Link href="about" passHref={true}>
+              About Random Apps
+            </Link>
           </footer>
         </Container>
       </main>

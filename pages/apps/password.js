@@ -6,7 +6,7 @@ import { Container, Fade } from "react-bootstrap";
 import { Button, Toaster, Position } from "@blueprintjs/core";
 import CopyToClipboard from "react-copy-to-clipboard";
 
-import logo from "../styles/img/password.png";
+import logo from "../../styles/img/password.png";
 
 export default class PasswordGenerator extends Component {
   constructor(props) {
