@@ -13,6 +13,10 @@ export default function Home() {
         <meta name="description" content="Quick and random useful apps" />
         <meta name="author" content="Satshree Shrestha" />
         <meta name="keywords" content="random, quick, useful, apps" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Fade appear={true} in={true}>

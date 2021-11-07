@@ -54,6 +54,10 @@ export default class PasswordGenerator extends Component {
             name="keywords"
             content="random, quick, useful, apps, password, string, generator"
           />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Container className="main-body">
