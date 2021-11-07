@@ -1,0 +1,20 @@
+.app-logo {
+  width: 65px;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(241, 240, 240);
+  transition: 0.5s;
+  padding: 0.5rem;
+}
+
+.app-label {
+  font-size: 16px;
+  margin: 1rem;
+  font-weight: 500;
+}
+
+.app-logo:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
+}
