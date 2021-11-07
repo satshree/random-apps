@@ -50,7 +50,7 @@ export default function Home() {
                         <a
                           href="https://satshree.com.np/#/ping"
                           target="_blank"
-                          rel="noopener"
+                          rel="noreferrer"
                         >
                           Suggest apps
                         </a>
