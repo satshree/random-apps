@@ -12,7 +12,10 @@ export default function Home() {
       <Head>
         <title>Random Apps</title>
         <meta name="description" content="Quick and random useful apps" />
-        <meta name="keywords" content="random, quick, useful, apps" />
+        <meta
+          name="keywords"
+          content="random, quick, useful, apps, netlify, satshree, shrestha, random apps, random useful apps, quick apps, quick useful apps"
+        />
       </Head>
       <Fade appear={true} in={true}>
         <React.Fragment>
