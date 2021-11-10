@@ -147,6 +147,7 @@ export default class LinkShortener extends Component {
                   </FormGroup>
                   <div className="text-center">
                     <Button
+                      className="bp-3-btn-fill-mobile"
                       intent="primary"
                       onClick={this.shortenURL}
                       disabled={
