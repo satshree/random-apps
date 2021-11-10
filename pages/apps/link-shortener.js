@@ -46,15 +46,15 @@ export default class LinkShortener extends Component {
   shortenURL = () => {
     let { url } = this.state;
 
-    if (url.indexOf("://") === -1 && url.indexOf(".") === -1) {
+    if (url.indexOf("://") === -1) {
       this.toaster.show({
         timeout: 5000,
-        message: "Enter a valid URL!",
+        message: "Enter a valid URL! Example: https://google.com",
         intent: "warning",
       });
-    } else {
-      this.setState({ ...this.state, progress: true });
 
+      this.setState({ ...this.state, progress: false });
+    } else {
       TinyURL.shorten(url, (result, error) => {
         if (error || result === "Error") {
           console.log(error);
@@ -149,9 +149,13 @@ export default class LinkShortener extends Component {
                     <Button
                       className="bp-3-btn-fill-mobile"
                       intent="primary"
-                      onClick={this.shortenURL}
+                      onClick={() =>
+                        this.setState({ ...this.state, progress: true }, () =>
+                          this.shortenURL()
+                        )
+                      }
                       disabled={
-                        this.state.url || this.state.progress ? false : true
+                        this.state.url && !this.state.progress ? false : true
                       }
                     >
                       {this.state.progress ? (
