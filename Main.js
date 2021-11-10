@@ -5,10 +5,32 @@ import Link from "next/link";
 import styles from "./styles/Home.module.css";
 
 import passwordLogo from "./styles/img/password.png";
+import linkShortenerLogo from "./styles/img/www.png";
 
 import Header from "./components/Header";
 
 export default class Main extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      apps: [
+        {
+          id: 1,
+          name: "Password Generator",
+          icon: passwordLogo.src,
+          link: "/apps/password",
+        },
+        {
+          id: 2,
+          name: "Link Shortener",
+          icon: linkShortenerLogo.src,
+          link: "/apps/link-shortener",
+        },
+      ],
+    };
+  }
+
   render() {
     return (
       <Fade appear={true} in={true}>
@@ -16,25 +38,38 @@ export default class Main extends Component {
           <main className={styles.main}>
             <Container>
               <Header />
-              <Row className="text-center w-100">
-                <Col className="col-margin" sm={6} md={4}>
-                  <div className="w-100 h-100 app-container">
-                    <div className="app-logo">
-                      <Link href="/apps/password" passHref={true}>
-                        <Image
-                          src={passwordLogo.src}
-                          alt="password logo"
-                          width="100px"
-                          height="100px"
-                        />
+              <Row className="text-center w-100 remove-row-gutter">
+                {this.state.apps.map((app, index) => (
+                  <Col
+                    key={index}
+                    className="col-margin d-flex align-items-center justify-content-center"
+                    sm={6}
+                    md={4}
+                  >
+                    <div className="w-100 h-100 app-container">
+                      <div className="app-logo">
+                        <Link href={app.link} passHref={true}>
+                          <Image
+                            src={app.icon}
+                            alt={`${app.name}-${app.id}`}
+                            width="100px"
+                            height="100px"
+                          />
+                        </Link>
+                      </div>
+                      <br />
+                      <Link href={app.link} passHref={true}>
+                        <span className="app-label clickable">{app.name}</span>
                       </Link>
                     </div>
-                    <br />
-                    <span className="app-label">Password Generator</span>
-                  </div>
-                </Col>
-                <Col className="col-margin" sm={6} md={4}>
-                  <div className="w-100 h-100 d-flex align-items-center justify-content-center">
+                  </Col>
+                ))}
+                <Col
+                  className="col-margin d-flex align-items-center justify-content-center"
+                  sm={6}
+                  md={4}
+                >
+                  <div className="w-100 h-100">
                     <span>
                       Other apps coming soon...
                       <br />

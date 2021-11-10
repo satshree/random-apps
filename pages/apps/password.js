@@ -95,12 +95,7 @@ export default class PasswordGenerator extends Component {
                 }}
               >
                 {/* EXPANDED HEIGHT AND WEIGHT CONTAINER */}
-                <div
-                  className="h-100 w-100 text-center"
-                  style={{
-                    maxWidth: "800px",
-                  }}
-                >
+                <div className="h-100 w-100 text-center app-container">
                   <br />
                   <br />
                   Use randomly generated passwords to keep yourself safe.

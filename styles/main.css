@@ -1,5 +1,18 @@
+.clickable {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.app-container {
+  max-width: 50%;
+}
+
 @media (max-width: 576px) {
   .bp-3-btn-fill-mobile {
     width: 100%;
+  }
+
+  .app-container {
+    max-width: 90%;
   }
 }
