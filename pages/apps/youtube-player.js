@@ -390,7 +390,7 @@ export default class YoutubePlayer extends Component {
               <div className="d-flex align-items-center justify-content-center">
                 {/* EXPANDED HEIGHT AND WEIGHT CONTAINER */}
                 <div className="h-100 w-100 text-center">
-                  <Row>
+                  <Row className="remove-row-gutter">
                     <Col className="video-player m-1">{this.getPlayer()}</Col>
                     <Col sm={4} className="video-list m-1">
                       <div className="text-center">
@@ -454,6 +454,7 @@ export default class YoutubePlayer extends Component {
                   <FormGroup label="YouTube Link" labelFor="youtube-input-link">
                     <InputGroup
                       id="youtube-input-link"
+                      type="url"
                       placeholder="Enter/Paste YouTube Link"
                       value={this.state.add.link}
                       onChange={(e) => {
