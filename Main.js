@@ -6,6 +6,7 @@ import styles from "./styles/Home.module.css";
 
 import passwordLogo from "./styles/img/password.png";
 import linkShortenerLogo from "./styles/img/www.png";
+import youtubeLogo from "./styles/img/youtube.png";
 
 import Header from "./components/Header";
 
@@ -26,6 +27,12 @@ export default class Main extends Component {
           name: "Link Shortener",
           icon: linkShortenerLogo.src,
           link: "/apps/link-shortener",
+        },
+        {
+          id: 3,
+          name: "YouTube Player",
+          icon: youtubeLogo.src,
+          link: "/apps/youtube-player",
         },
       ],
     };
@@ -64,14 +71,10 @@ export default class Main extends Component {
                     </div>
                   </Col>
                 ))}
-                <Col
-                  className="col-margin d-flex align-items-center justify-content-center"
-                  sm={6}
-                  md={4}
-                >
-                  <div className="w-100 h-100">
+                <Col className="col-margin" sm={6} md={4}>
+                  <div className="d-flex align-items-center justify-content-center w-100 h-100">
                     <span>
-                      Other apps coming soon...
+                      More apps coming soon...
                       <br />
                       <small>
                         <a
