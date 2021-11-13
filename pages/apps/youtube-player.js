@@ -7,6 +7,7 @@ import {
   Toaster,
   FormGroup,
   InputGroup,
+  Icon,
 } from "@blueprintjs/core";
 import Head from "next/head";
 import Image from "next/image";
@@ -24,8 +25,6 @@ export default class YoutubePlayer extends Component {
       currentPlayer: {
         videoID: "",
         link: "",
-        next: "",
-        prev: "",
         repeat: false,
         shuffle: false,
       },
@@ -154,6 +153,13 @@ export default class YoutubePlayer extends Component {
     return false;
   };
 
+  getVideoFromList = (videoID) => {
+    for (let video of this.state.list) {
+      if (video.id === videoID) return video;
+    }
+    return null;
+  };
+
   fetchVideoInfo = (link, info) => {
     const API = `https://www.youtube.com/oembed?url=${link}&format=json`;
 
@@ -181,29 +187,38 @@ export default class YoutubePlayer extends Component {
     currentPlayer.videoID = video ? video.id : "";
     currentPlayer.link = video ? video.info.html : "";
 
-    if (currentPlayer.videoID) {
-      let nextIndex = this.state.list.indexOf(video) + 1;
-      let prevIndex = this.state.list.indexOf(video) - 1;
-
-      currentPlayer.next =
-        this.state.list.length > 1
-          ? this.state.list.length < nextIndex
-            ? this.state.list[nextIndex]
-            : null
-          : null;
-
-      currentPlayer.prev =
-        this.state.list.length > 1
-          ? prevIndex >= 0
-            ? this.state.list[prevIndex]
-            : null
-          : null;
-    } else {
-      currentPlayer.next = "";
-      currentPlayer.prev = "";
-    }
-
     this.setState({ ...this.state, currentPlayer });
+  };
+
+  playNextVideo = () => {
+    const { repeat, shuffle, videoID } = this.state.currentPlayer;
+    let video = this.getVideoFromList(videoID);
+
+    if (repeat) {
+      this.setCurrentVideo(null);
+      this.setCurrentVideo(video);
+    } else if (shuffle) {
+      if (this.state.list.length > 1) {
+        const max = this.state.list.length;
+        let video = { id: videoID };
+
+        while (true) {
+          let nextIndex = Math.floor(Math.random() * max);
+          video = this.state.list[nextIndex];
+
+          if (video.id !== videoID) {
+            this.setCurrentVideo(video);
+            break;
+          }
+        }
+      }
+    } else {
+      let nextIndex =
+        this.state.list.indexOf(this.getVideoFromList(videoID)) + 1;
+
+      video = this.state.list[nextIndex] || this.state.list[0];
+      this.setCurrentVideo(video);
+    }
   };
 
   getVideoList = () => (
@@ -229,7 +244,14 @@ export default class YoutubePlayer extends Component {
               </div>
               <div>
                 <small>
-                  <strong>{video.info.title}</strong>
+                  <strong>
+                    {this.state.currentPlayer.videoID === video.id ? (
+                      <React.Fragment>
+                        <Icon icon="play" intent="success" />{" "}
+                      </React.Fragment>
+                    ) : null}
+                    {video.info.title}
+                  </strong>
                   <br />
                   <span className="text-muted">{video.info.author_name}</span>
                 </small>
@@ -263,6 +285,7 @@ export default class YoutubePlayer extends Component {
                   currentPlayer.repeat = !currentPlayer.repeat;
                   this.setState({ ...this.state, currentPlayer });
                 }}
+                disabled={this.state.currentPlayer.shuffle}
               >
                 Repeat
               </Button>
@@ -277,12 +300,30 @@ export default class YoutubePlayer extends Component {
                   currentPlayer.shuffle = !currentPlayer.shuffle;
                   this.setState({ ...this.state, currentPlayer });
                 }}
+                disabled={
+                  this.state.list.length < 3 || this.state.currentPlayer.repeat
+                }
               >
                 Shuffle
               </Button>
+              {this.state.list.length > 1 ? (
+                <Button
+                  intent="primary"
+                  className="m-1"
+                  rightIcon="arrow-right"
+                  onClick={this.playNextVideo}
+                  disabled={this.state.currentPlayer.repeat}
+                >
+                  Play Next
+                </Button>
+              ) : null}
             </div>
             <br />
-            <YouTube video={currentPlayer.videoID} autoplay />
+            <YouTube
+              video={currentPlayer.videoID}
+              autoplay={true}
+              onEnd={this.playNextVideo}
+            />
           </div>
         ) : (
           <div className="w-100 h-100 d-flex align-items-center justify-content-center">
@@ -354,18 +395,42 @@ export default class YoutubePlayer extends Component {
                     <Col sm={4} className="video-list m-1">
                       <div className="text-center">
                         <Button
-                          className="bp-3-btn-fill-mobile"
+                          className="m-1"
                           intent="primary"
                           icon="add"
                           onClick={this.handleShow}
                         >
                           Add
                         </Button>
+                        <Button
+                          className="m-1"
+                          intent="warning"
+                          icon="reset"
+                          onClick={() => {
+                            this.setCurrentVideo(null);
+                            this.setState({ ...this.state, list: [] });
+                          }}
+                          disabled={this.state.list.length === 0}
+                        >
+                          Clear
+                        </Button>
                       </div>
                       <br />
                       {this.getVideoList()}
                     </Col>
                   </Row>
+                  <small>
+                    <small>
+                      Using{" "}
+                      <a
+                        href="https://github.com/u-wave/react-youtube"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        react-youtube
+                      </a>
+                    </small>
+                  </small>
                 </div>
               </div>
             </div>
