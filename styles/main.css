@@ -16,6 +16,16 @@
     max-width: 90%;
   }
 
+  .video-player {
+    margin: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .video-list {
+    margin: 0 !important;
+    margin-top: 0.5rem !important;
+  }
+
   .video-player iframe {
     height: 350px !important;
   }
@@ -24,7 +34,8 @@
 .video-list {
   border-radius: 5px;
   background-color: rgb(240, 240, 240);
-  padding: 1rem 2px;
+  padding: 1rem 0.5rem;
+  margin: 3px;
 }
 
 .video-player {
@@ -32,6 +43,7 @@
   background-color: rgb(49, 49, 49);
   padding: 1rem 2px;
   color: white;
+  margin: 3px;
 }
 
 .video-player iframe {
@@ -44,6 +56,8 @@
   padding: 0 !important;
   background-color: #ffffff;
   border-radius: 5px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .queued-video .video-info {

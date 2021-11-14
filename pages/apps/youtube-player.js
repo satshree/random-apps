@@ -111,6 +111,10 @@ export default class YoutubePlayer extends Component {
     this.setState({ ...this.state, add });
   };
 
+  onReadyEvent = (e) => {
+    e.target.playVideo();
+  };
+
   confirmDequeue = (video) => {
     let { dequeueConfirm } = this.state;
     dequeueConfirm.show = true;
@@ -320,9 +324,13 @@ export default class YoutubePlayer extends Component {
             </div>
             <br />
             <YouTube
+              id="youtube-iframe-player"
+              className="youtube-iframe-player"
               video={currentPlayer.videoID}
               autoplay={true}
+              playsInline={true}
               onEnd={this.playNextVideo}
+              onReady={this.onReadyEvent}
             />
           </div>
         ) : (
@@ -391,8 +399,8 @@ export default class YoutubePlayer extends Component {
                 {/* EXPANDED HEIGHT AND WEIGHT CONTAINER */}
                 <div className="h-100 w-100 text-center">
                   <Row className="remove-row-gutter">
-                    <Col className="video-player m-1">{this.getPlayer()}</Col>
-                    <Col sm={4} className="video-list m-1">
+                    <Col className="video-player">{this.getPlayer()}</Col>
+                    <Col sm={4} className="video-list">
                       <div className="text-center">
                         <Button
                           className="m-1"
@@ -419,6 +427,7 @@ export default class YoutubePlayer extends Component {
                       {this.getVideoList()}
                     </Col>
                   </Row>
+                  <br />
                   <small>
                     <small>
                       Using{" "}
@@ -431,6 +440,8 @@ export default class YoutubePlayer extends Component {
                       </a>
                     </small>
                   </small>
+                  <br />
+                  <br />
                 </div>
               </div>
             </div>
