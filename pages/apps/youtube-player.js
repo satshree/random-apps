@@ -112,6 +112,7 @@ export default class YoutubePlayer extends Component {
   };
 
   onReadyEvent = (e) => {
+    // e.target.setVolume(70);
     e.target.playVideo();
   };
 
@@ -328,9 +329,13 @@ export default class YoutubePlayer extends Component {
               className="youtube-iframe-player"
               video={currentPlayer.videoID}
               autoplay={true}
-              playsInline={true}
+              // playsInline={true}
               onEnd={this.playNextVideo}
               onReady={this.onReadyEvent}
+              onPlaying={(e) => {
+                // console.log("on playing", e);
+                e.target.playVideo();
+              }}
             />
           </div>
         ) : (
