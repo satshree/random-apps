@@ -17,6 +17,8 @@ import YouTube from "@u-wave/react-youtube";
 
 import logo from "../../styles/img/youtube.png";
 
+const mobile = require("is-mobile");
+
 export default class YoutubePlayer extends Component {
   constructor(props) {
     super(props);
@@ -403,6 +405,14 @@ export default class YoutubePlayer extends Component {
               <div className="d-flex align-items-center justify-content-center">
                 {/* EXPANDED HEIGHT AND WEIGHT CONTAINER */}
                 <div className="h-100 w-100 text-center">
+                  {mobile() ? (
+                    <small className="text-center p-2 text-danger">
+                      Autoplay is not enabled due to restriction of iOS and
+                      Android web browsers.
+                      <br />
+                      <br />
+                    </small>
+                  ) : null}
                   <Row className="remove-row-gutter">
                     <Col className="video-player">{this.getPlayer()}</Col>
                     <Col sm={4} className="video-list">
