@@ -495,7 +495,15 @@ export default class YoutubePlayer extends Component {
               </Container>
               <div className="text-center" style={{ margin: "0 20px" }}>
                 <Button
-                  className="bp-3-btn-fill-mobile"
+                  className="bp-3-btn-fill-mobile m-1"
+                  type="button"
+                  onClick={this.handleClose}
+                  disabled={this.state.add.progress}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="bp-3-btn-fill-mobile m-1"
                   intent="success"
                   type="submit"
                   disabled={this.state.add.progress}
