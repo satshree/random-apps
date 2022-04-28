@@ -1,10 +1,11 @@
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 import React, { Component } from "react";
 import { Container, Fade } from "react-bootstrap";
-import { Button, Toaster, Position } from "@blueprintjs/core";
+import { Toaster, Position } from "@blueprintjs/core";
 import CopyToClipboard from "react-copy-to-clipboard";
+
+import HomeButton from "../../components/HomeButton";
 
 import logo from "../../styles/img/password.png";
 
@@ -63,7 +64,7 @@ export default class PasswordGenerator extends Component {
             <div className="h-100">
               {/* HEADER */}
               <div className="text-center w-100">
-                <div className="d-flex align-items-center justify-content-center w-100 p-5 pb-3">
+                <div className="d-flex align-items-center justify-content-center w-100 p-5 pb-1">
                   <Image
                     src={logo.src}
                     alt="header logo"
@@ -75,9 +76,6 @@ export default class PasswordGenerator extends Component {
                     <span>Password Generator</span>
                   </h4>
                 </div>
-                <Link href="/" passHref={true}>
-                  <Button icon="home">Home</Button>
-                </Link>
               </div>
               {/* HEADER */}
               <hr
@@ -163,6 +161,7 @@ export default class PasswordGenerator extends Component {
               </div>
             </div>
           </Fade>
+          <HomeButton />
         </Container>
       </React.Fragment>
     );

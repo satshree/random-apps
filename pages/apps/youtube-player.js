@@ -11,9 +11,10 @@ import {
 } from "@blueprintjs/core";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import $ from "jquery";
 import YouTube from "@u-wave/react-youtube";
+
+import HomeButton from "../../components/HomeButton";
 
 import logo from "../../styles/img/youtube.png";
 
@@ -387,11 +388,6 @@ export default class YoutubePlayer extends Component {
                 <small>
                   Instantly play YouTube videos as music player with playlist.
                 </small>
-                <br />
-                <br />
-                <Link href="/" passHref={true}>
-                  <Button icon="home">Home</Button>
-                </Link>
               </div>
               {/* HEADER */}
               <hr
@@ -461,6 +457,7 @@ export default class YoutubePlayer extends Component {
               </div>
             </div>
           </Fade>
+          <HomeButton />
           <Dialog
             isOpen={this.state.add.show}
             onClose={this.handleClose}

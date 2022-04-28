@@ -11,7 +11,8 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 import Image from "next/image";
 import Head from "next/head";
-import Link from "next/link";
+
+import HomeButton from "../../components/HomeButton";
 
 import logo from "../../styles/img/www.png";
 
@@ -94,7 +95,7 @@ export default class LinkShortener extends Component {
             <div className="h-100">
               {/* HEADER */}
               <div className="text-center w-100">
-                <div className="d-flex align-items-center justify-content-center w-100 p-5 pb-3">
+                <div className="d-flex align-items-center justify-content-center w-100 p-5 pb-1">
                   <Image
                     src={logo.src}
                     alt="header logo"
@@ -106,9 +107,6 @@ export default class LinkShortener extends Component {
                     <span>URL Link Shortener</span>
                   </h4>
                 </div>
-                <Link href="/" passHref={true}>
-                  <Button icon="home">Home</Button>
-                </Link>
               </div>
               {/* HEADER */}
               <hr
@@ -221,6 +219,7 @@ export default class LinkShortener extends Component {
               </div>
             </div>
           </Fade>
+          <HomeButton />
         </Container>
       </React.Fragment>
     );
