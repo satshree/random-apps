@@ -4,6 +4,8 @@
 
 ### CUSTOM ###
 package-lock.json
+.eslintrc.json
+git_merge_push.sh
 
 ### Linux ###
 *~
