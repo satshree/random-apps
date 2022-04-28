@@ -71,7 +71,7 @@ export default class Main extends Component {
                     </div>
                   </Col>
                 ))}
-                <Col className="col-margin" sm={6} md={4}>
+                <Col className="col-margin mt-5" sm={12}>
                   <div className="d-flex align-items-center justify-content-center w-100 h-100">
                     <span>
                       More apps coming soon...
