@@ -10,6 +10,8 @@ import youtubeLogo from "./styles/img/youtube.png";
 
 import Header from "./components/Header";
 
+const mobile = require("is-mobile");
+
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -91,7 +93,10 @@ export default class Main extends Component {
               </Row>
             </Container>
           </main>
-          <footer className={styles.footer}>
+          <footer
+            className={styles.footer}
+            style={{ bottom: mobile() ? "1rem" : "0" }}
+          >
             <a
               href="https://github.com/satshree/random-apps"
               target="blank"
