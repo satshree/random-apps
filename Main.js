@@ -7,6 +7,7 @@ import styles from "./styles/Home.module.css";
 import passwordLogo from "./styles/img/password.png";
 import linkShortenerLogo from "./styles/img/www.png";
 import youtubeLogo from "./styles/img/youtube.png";
+import noteLogo from "./styles/img/note.png";
 
 import Header from "./components/Header";
 
@@ -36,6 +37,12 @@ export default class Main extends Component {
           icon: youtubeLogo.src,
           link: "/apps/youtube-player",
         },
+        {
+          id: 4,
+          name: "Quick Note",
+          icon: noteLogo.src,
+          link: "/apps/quick-note",
+        },
       ],
     };
   }
@@ -53,7 +60,7 @@ export default class Main extends Component {
                     key={index}
                     className="col-margin d-flex align-items-center justify-content-center"
                     sm={6}
-                    md={4}
+                    md={3}
                   >
                     <div className="w-100 h-100 app-container">
                       <div className="app-logo">
