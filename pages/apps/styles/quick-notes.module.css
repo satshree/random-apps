@@ -32,7 +32,7 @@
   border: 1px solid rgba(128, 128, 128, 0.423);
   border-radius: 5px;
   padding: 1rem;
-  font-family: "Cutive Mono", monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 .text:focus {
