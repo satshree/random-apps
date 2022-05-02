@@ -38,6 +38,8 @@ export default class QuickNote extends Component {
     this.refHandlers = {
       toaster: (ref) => (this.toaster = ref),
     };
+
+    this.text = React.createRef();
   }
 
   componentDidMount() {
@@ -48,6 +50,8 @@ export default class QuickNote extends Component {
         this.setState({ ...this.state, text });
       }
     }
+
+    this.text.current.focus();
   }
   // THIS WAS A VERY NICE LOGIC I CAME UP WITH FOUND ANOTHER SOLUTION... SAD
   // nextLine = (line, index) => {
@@ -172,6 +176,7 @@ export default class QuickNote extends Component {
                           : null
                       )
                     }
+                    disabled={!this.state.text}
                   >
                     Clear
                   </Button>
@@ -192,12 +197,14 @@ export default class QuickNote extends Component {
                       intent="primary"
                       className="ms-2"
                       onClick={this.download}
+                      disabled={!this.state.text}
                     >
                       Download
                     </Button>
                   </div>
                 </div>
                 <textarea
+                  ref={this.text}
                   className={css.text}
                   value={this.state.text}
                   onChange={(e) => {
